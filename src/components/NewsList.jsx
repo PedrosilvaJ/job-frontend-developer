@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { fetchNews } from "../api/apiService";
+import Navbar from "./NavBar";
 
 const NewsList = () => {
   const [news, setNews] = useState([]);
+  const [filteredNews, setFilteredNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -11,6 +13,7 @@ const NewsList = () => {
       try {
         const data = await fetchNews();
         setNews(data.slice(0, 20));
+        setFilteredNews(data.slice(0, 20));
       } catch (err) {
         setError("Erro ao carregar os posts.");
       } finally {
@@ -20,14 +23,23 @@ const NewsList = () => {
     getNews();
   }, []);
 
+  const handleSearch = (query) => {
+    const filtered = news.filter((item) => 
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
+      item.author.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredNews(filtered);
+  };
+
   if (loading) return <p>Carregando...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <div>
+      <Navbar onSearch={handleSearch} />
       <h1>Lista de Noticias</h1>
         <ul>
-        {news.map((item, index) => (
+        {filteredNews.map((item, index) => (
             <li key={index}>      
                 <img src={item.urlToImage} alt={item.title} />
                 <span>{item.sourceName}</span>
