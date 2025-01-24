@@ -17,7 +17,6 @@ const NewsList = () => {
         setLoading(false);
       }
     };
-
     getNews();
   }, []);
 
@@ -31,9 +30,10 @@ const NewsList = () => {
         {news.map((item, index) => (
             <li key={index}>      
                 <img src={item.urlToImage} alt={item.title} />
+                <span>{item.sourceName}</span>
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
-                <span>{item.author}</span>
+                <span><img src={item.authorImage} alt={`Imagem de ${item.author}`}></img>{item.author}</span>
                 <p>{item.publishedAt}</p>
             </li>
         ))}
