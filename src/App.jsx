@@ -1,14 +1,13 @@
-import { useState } from 'react'
-
+import React from "react";
+import NewsList from "./components/NewsList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      
-    </>
-  )
+    <div className="App">
+      <h1>Meu Projeto React</h1>
+      <NewsList />
+    </div>
+  );
 }
 
-export default App
+export default App;
