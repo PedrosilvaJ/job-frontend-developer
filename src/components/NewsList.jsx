@@ -29,9 +29,12 @@ const NewsList = () => {
       <h1>Lista de Noticias</h1>
         <ul>
         {news.map((item, index) => (
-            <li key={index}>
-                <strong>{item.title}</strong>
+            <li key={index}>      
+                <img src={item.urlToImage} alt={item.title} />
+                <h2>{item.title}</h2>
                 <p>{item.description}</p>
+                <span>{item.author}</span>
+                <p>{item.publishedAt}</p>
             </li>
         ))}
         </ul>
