@@ -88,4 +88,3 @@ Estamos ansiosos para ver sua solução e esperamos que você aproveite este des
 - Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
 - Alcance dos objetivos propostos
 - Componentização e extensibilidade dos componentes Javascript
-
