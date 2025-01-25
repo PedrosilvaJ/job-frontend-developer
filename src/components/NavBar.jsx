@@ -45,17 +45,24 @@ const Navbar = ({ onSearch }) => {
         <div className="col-lg-12 col-md-12 col-sm-12">
             <div className="box-nav">
                 <img src={Logo} alt="Logo" className="logotype"></img>
-                <h1 className="title-nav">Explore as últimas notícias 
-                sobre tecnologia da web</h1>
-                <p className="text-nav">Selecionamos todas as notícias sobre tecnologia<br />
-                produzidas na web para você. Aproveite, foi tudo feito com dedicação.</p>
+                {location.pathname === "/" && !location.search && (
+                    <>
+                    <h1 className="title-nav">Explore as últimas notícias sobre tecnologia da web</h1>
+                    <p className="text-nav">
+                        Selecionamos todas as notícias sobre tecnologia<br />
+                        produzidas na web para você. Aproveite, foi tudo feito com dedicação.
+                    </p>
+                    </>
+                )}
                 {(location.pathname !== "/" || location.search) && (
                 <button onClick={handleSearch} className="backhome-button">Home</button>
                 )}
                 <input
                 type="text"
                 placeholder="Buscar por título ou autor..."
-                className="search-input"
+                className={`search-input ${
+                    location.pathname !== "/" || location.search ? "search-active" : ""
+                  }`}
                 value={query}
                 onChange={handleSearch}
                 />

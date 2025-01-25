@@ -61,6 +61,11 @@
     background-repeat: no-repeat;
     background-position: 24px;
 }
+.search-active{
+    position: relative;
+    bottom: 0;
+    margin-bottom: 20px;
+}
 .backhome-button{
     background: transparent;
     font-family: var(--font-poppins);

@@ -1,0 +1,112 @@
+.box-newslist{
+    display: block;
+    margin-top: 150px;
+}
+.title-newslist{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: var(--font-poppins);
+    font-weight: 800;
+}
+.text-result{
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: var(--text-font);
+    display: block;
+    margin-bottom: 80px;
+}
+.newslist-content{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.news{
+    height: 315px;
+    max-height: 315px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.image-news{
+    display: block;
+    width: 425px;
+    height: 315px;
+    border-radius: 8px;
+    object-fit: cover;
+    float: left;
+    margin-right: 10px;
+}
+.source-news{
+    display: block;
+    font-family: var(--font-roboto-condensed);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--green);
+}
+.title-news{
+    display: block;
+    font-family: var(--font-playfair);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    color: var(--black-font);
+    overflow: hidden;
+    display: -webkit-box;
+   -webkit-line-clamp: 2;
+    line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+.description-news{
+    display: block;
+    font-family: var(--font-roboto-condensed);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--text-font);
+    overflow: hidden;
+    display: -webkit-box;
+   -webkit-line-clamp: 4;   
+    line-clamp: 4; 
+   -webkit-box-orient: vertical;
+}
+.name-author{
+    font-family: var(--font-poppins);
+    color: var(--text-font);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 10px;
+    float: left;
+}
+.image-author{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    float: left;
+    margin-right: 10px;
+}
+.date-author{
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 13px;
+}
+.pagination{
+    justify-content: center;
+}
+.pagination .active{
+    background: transparent;
+    color: var(--green);
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+}

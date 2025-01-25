@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
     --font-playfair: "Playfair Display";
+    --font-roboto-condensed: "Roboto Condensed";
     --font-poppins: "Poppins";
     --black-font: #1E293B;
     --text-font: #475569;
     --white: #ffffff;
     --gray-bg: #F1F5F9;
+    --green: #008B8B;
 }
