@@ -44,13 +44,9 @@ const NewsDetailed = () => {
   const checkReadingLimits = (article) => {
     const today = new Date().toISOString().split("T")[0];
     let storedArticles = JSON.parse(localStorage.getItem("articles_read")) || [];
-
-    // Remover leituras antigas (somente manter as do dia atual)
     storedArticles = storedArticles.filter((item) => item.date === today);
 
-    // Verificar se a matéria já foi lida
     const existingArticle = storedArticles.find((item) => item.title === article.title);
-
     if (existingArticle) {
       if (existingArticle.readCount < 2) {
         existingArticle.readCount += 1;
@@ -62,8 +58,7 @@ const NewsDetailed = () => {
     } else {
       storedArticles.push({ title: article.title, readCount: 1, date: today });
     }
-
-    // Verificar se o limite de 10 matérias foi atingido
+    
     if (storedArticles.length >= 10) {
       setPopupMessage("Você atingiu o limite de 10 matérias por dia.");
       setShowPopup(true);

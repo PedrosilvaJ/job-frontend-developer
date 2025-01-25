@@ -6,7 +6,7 @@ const LimitPopup = ({ message, onClose }) => {
 
   const handleGoHome = () => {
     navigate("/");
-    onClose(); // Fecha o popup ao voltar para home
+    onClose();
   };
 
   return (
