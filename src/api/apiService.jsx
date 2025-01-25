@@ -7,11 +7,12 @@ const DEFAULT_IMAGE = "/src/assets/images/user.png";
 export const fetchNews = async () => {
   try {
     const response = await axios.get(`${API_URL}?category=technology&apiKey=${API_KEY}`);
-    const formattedArticles = response.data.articles.map((article) => {
+    const formattedArticles = response.data.articles.map((article, index) => {
         const publishedDate = new Date(article.publishedAt);
         const formattedDate = publishedDate.toLocaleDateString("pt-BR"); 
         return {
           ...article,
+          id: index,
           author: article.author || "Desconhecido",  
           authorImage: DEFAULT_IMAGE,
           sourceName: article.source.name,

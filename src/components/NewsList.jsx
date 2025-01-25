@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { fetchNews } from "../api/apiService";
 import Navbar from "./NavBar";
+import { useNavigate } from "react-router-dom";
 
 const NewsList = () => {
   const [news, setNews] = useState([]);
   const [filteredNews, setFilteredNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getNews = async () => {
@@ -22,6 +24,17 @@ const NewsList = () => {
     };
     getNews();
   }, []);
+
+  const handleClick = (article, index) => {
+    const formattedSlug = `${article.title}-${index}`
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "")
+      .replace(/-+/g, "-");
+  
+    navigate(`/news/${formattedSlug}`, { state: { article } });
+  };
+
 
   const handleSearch = (query) => {
     const filtered = news.filter((item) => 
@@ -40,7 +53,7 @@ const NewsList = () => {
       <h1>Lista de Noticias</h1>
         <ul>
         {filteredNews.map((item, index) => (
-            <li key={index}>      
+            <li key={index} onClick={() => handleClick(item, index)}>      
                 <img src={item.urlToImage} alt={item.title} />
                 <span>{item.sourceName}</span>
                 <h2>{item.title}</h2>
