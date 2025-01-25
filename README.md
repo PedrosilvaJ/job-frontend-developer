@@ -23,7 +23,7 @@ para poder organizar melhor o código e mais otimizado isso tambem permite escal
 `git clone https://github.com/PedrosilvaJ/job-frontend-developer.git`
 
 ### 2. Navegar para o diretório do projeto                             
-`cd job-frontend.developer`
+`cd job-frontend-developer`
 
 ### 3. Instalar as dependências
 `npm install` 
