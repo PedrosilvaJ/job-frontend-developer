@@ -89,8 +89,8 @@ const NewsDetailed = () => {
                             className="image-author"
                           />
                           <span className="name-author">{article.author}</span>
+                          <p className="date-author">{article.publishedAt}</p>
                         </div>
-                        <p className="date-author">{article.publishedAt}</p>
                     <img src={article.urlToImage} alt={article.title} className="image-detailed" style={{ maxWidth: "100%" }} />
                     <p className="text-detailed">{article.content}</p>
                 </div>

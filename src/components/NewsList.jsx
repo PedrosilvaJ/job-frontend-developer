@@ -97,8 +97,8 @@ const NewsList = () => {
                             className="image-author"
                           />
                           <span className="name-author">{item.author}</span>
-                        </div>
-                        <p className="date-author">{item.publishedAt}</p>
+                          <p className="date-author">{item.publishedAt}</p>
+                        </div>   
                       </li>
                     ))}
                   </ul>
@@ -123,8 +123,8 @@ const NewsList = () => {
                             className="image-author"
                           />
                           <span className="name-author">{item.author}</span>
+                          <p className="date-author">{item.publishedAt}</p>
                         </div>
-                        <p className="date-author">{item.publishedAt}</p>
                       </li>
                     ))}
                   </ul>

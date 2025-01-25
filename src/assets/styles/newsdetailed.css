@@ -23,18 +23,21 @@
     width: 992px;
 }
 .box-author-detailed{
-    display: block;
-    margin: 0 auto;
-    width: 300px;   
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    margin-bottom: 40px;
 }
 .image-detailed{
     display: block;
     margin: 0px auto;
-    margin-top: 100px;
     margin-bottom: 40px;
     width: 992px;
     height: 562px;
     border-radius: 4px;
+    object-fit: cover;
 }
 .text-detailed{
     width: 686px;
@@ -44,4 +47,12 @@
     line-height: 24px;
     font-weight: 400;
     color: var(--black-font);
+}
+@media (max-width: 475px){
+    .title-detailed{
+        width: 100%;
+    }
+    .text-detailed{
+        width: 100%;
+    }
 }

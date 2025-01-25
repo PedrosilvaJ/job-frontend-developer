@@ -27,7 +27,6 @@
 }
 .news{
     height: 315px;
-    max-height: 315px;
     margin-bottom: 30px;
     cursor: pointer;
 }
@@ -74,6 +73,12 @@
     line-clamp: 4; 
    -webkit-box-orient: vertical;
 }
+.box-author{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row;
+    justify-content: flex-start;
+}
 .name-author{
     font-family: var(--font-poppins);
     color: var(--text-font);
@@ -81,14 +86,12 @@
     font-size: 16px;
     line-height: 22px;
     margin-top: 10px;
-    float: left;
 }
 .image-author{
     display: block;
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    float: left;
     margin-right: 10px;
 }
 .date-author{
@@ -96,7 +99,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    float: left;
     margin-left: 10px;
     margin-top: 13px;
 }
@@ -109,4 +111,14 @@
     font-size: 16px;
     font-weight: 700;
     border: none;
+}
+@media(max-width: 475px){
+    .image-news{
+        width: 100%;
+    }
+    .news{
+        height: auto;
+        clear: both;
+        margin-bottom: 30px;
+    }
 }
