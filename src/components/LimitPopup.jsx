@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import '../assets/styles/main.css';
+import '../assets/styles/limitipopup.css';
 
 const LimitPopup = ({ message, onClose }) => {
   const navigate = useNavigate();
@@ -10,16 +12,18 @@ const LimitPopup = ({ message, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-        <h2 className="text-xl font-bold mb-4">Aviso</h2>
-        <p className="mb-4">{message}</p>
-        <button 
-          onClick={handleGoHome} 
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Voltar para Home
-        </button>
+    <div className="box-popup">
+      <div className="container-popup">
+        <div>
+          <h2 className="title-popup">Aviso</h2>
+          <p className="message-popup">{message}</p>
+          <button
+            onClick={handleGoHome}
+            className="button-popup"
+          >
+            Voltar para Home
+          </button>
+        </div>
       </div>
     </div>
   );

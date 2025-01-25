@@ -53,7 +53,7 @@ const NewsDetailed = () => {
       if (existingArticle.readCount < 3) {
         existingArticle.readCount += 1;
       } else {
-        setPopupMessage("Você já leu esta matéria 2 vezes.");
+        setPopupMessage("Você já leu esta matéria 2 vezes hoje, atigindo o limite.");
         setShowPopup(true);
         return;
       }
