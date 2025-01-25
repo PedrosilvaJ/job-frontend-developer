@@ -1,28 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+
+  
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const searchQuery = params.get("q");
+    if (searchQuery) {
+      setQuery(searchQuery);
+      onSearch(searchQuery);
+    }
+  }, []); 
 
   const handleSearch = (e) => {
     const value = e.target.value;
     setQuery(value);
 
-    if (location.pathname.includes("/news/")) {
-      navigate("/", { state: { searchQuery: value } });
+    if (value.trim()) {
+      navigate(`/?q=${encodeURIComponent(value)}`, { replace: true });
     } else {
-      onSearch(value);
+      navigate("/", { replace: true });
     }
+
+    onSearch(value);
+  };
+
+  const handleClearSearch = () => {
+    setQuery(""); 
+    onSearch(""); 
+    navigate("/", { replace: true }); 
   };
 
   return (
     <nav>
       <div>
-        {location.pathname.includes("/news/") && (
-          <button onClick={() => navigate("/")}>
-            ← Voltar para Lista
+        {(location.pathname !== "/" || location.search) && (
+          <button onClick={handleSearch}>
+            ← Voltar para Home
           </button>
         )}
         <input
