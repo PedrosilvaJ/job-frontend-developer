@@ -3,6 +3,8 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./NavBar";
 import { fetchNews } from "../api/apiService";
 import ReadLimitPopup from "./LimitPopup";
+import '../assets/styles/main.css';
+import '../assets/styles/newsdetailed.css';
 
 const NewsDetailed = () => {
   const { slug } = useParams();
@@ -48,7 +50,7 @@ const NewsDetailed = () => {
 
     const existingArticle = storedArticles.find((item) => item.title === article.title);
     if (existingArticle) {
-      if (existingArticle.readCount < 2) {
+      if (existingArticle.readCount < 3) {
         existingArticle.readCount += 1;
       } else {
         setPopupMessage("Você já leu esta matéria 2 vezes.");
@@ -58,7 +60,7 @@ const NewsDetailed = () => {
     } else {
       storedArticles.push({ title: article.title, readCount: 1, date: today });
     }
-    
+
     if (storedArticles.length >= 10) {
       setPopupMessage("Você atingiu o limite de 10 matérias por dia.");
       setShowPopup(true);
@@ -74,10 +76,27 @@ const NewsDetailed = () => {
     <div>
       <Navbar />
       {showPopup && <ReadLimitPopup message={popupMessage} onClose={() => setShowPopup(false)} />}
-      <h1>{article.title}</h1>
-      <img src={article.urlToImage} alt={article.title} style={{ maxWidth: "100%" }} />
-      <p><strong>Fonte:</strong> {article.sourceName}</p>
-      <p><strong>Conteúdo:</strong> {article.content}</p>
+      <div className="container">
+        <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12">
+                <div className="box-detailed">
+                    <p className="source-detailed">{article.sourceName}</p>
+                    <h1 className="title-detailed">{article.title}</h1>
+                    <div className="box-author-detailed">
+                          <img
+                            src={article.authorImage}
+                            alt={`Imagem de ${article.author}`}
+                            className="image-author"
+                          />
+                          <span className="name-author">{article.author}</span>
+                        </div>
+                        <p className="date-author">{article.publishedAt}</p>
+                    <img src={article.urlToImage} alt={article.title} className="image-detailed" style={{ maxWidth: "100%" }} />
+                    <p className="text-detailed">{article.content}</p>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
   );
 };
